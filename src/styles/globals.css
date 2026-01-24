@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;900&display=swap");
+@import "tailwindcss";
+
+/* -------------------- */
+/* DESIGN TOKENS */
+/* -------------------- */
+@theme {
+  /* Core Brand Colors */
+  --color-primary: #0066ff;
+  --color-secondary-cyan: #00d9ff;
+  --color-neon-purple: #8b5cf6;
+
+  /* Surfaces */
+  --color-dark-bg: #0a0a0f;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system;
+  --font-heading: "Outfit", sans-serif;
+
+  /* Radius */
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+  --radius-xl: 2.5rem;
+
+  /* Motion */
+  --ease-out-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s var(--ease-out-premium) both;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* -------------------- */
+/* BASE STYLES */
+/* -------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-bg text-white overflow-x-hidden antialiased;
+    font-family: var(--font-sans);
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* global.css or tailwind layer */
+.input {
+  @apply w-full rounded-xl px-5 py-3
+  bg-white/5 backdrop-blur
+  border border-white/20
+  text-white placeholder:text-gray-400
+  outline-none
+  transition
+  focus:border-primary focus:ring-2 focus:ring-primary/30;
+}
+
+
+/* -------------------- */
+/* COMPONENTS */
+/* -------------------- */
+@layer components {
+  /* Glassmorphism Card */
+  .glass {
+    @apply relative bg-white/[0.035] backdrop-blur-2xl border border-white/10;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-secondary-cyan),
+      var(--color-neon-purple)
+    );
+  }
+
+  /* Neon Button / Accent Glow */
+  .neon-glow {
+    @apply transition-all duration-300;
+    box-shadow:
+      0 0 20px rgba(0, 102, 255, 0.35),
+      0 0 40px rgba(139, 92, 246, 0.25);
+  }
+
+  .neon-glow:hover {
+    box-shadow:
+      0 0 30px rgba(0, 102, 255, 0.6),
+      0 0 60px rgba(139, 92, 246, 0.45);
+  }
+}
+
+/* -------------------- */
+/* UTILITIES */
+/* -------------------- */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Subtle grid overlay (optional section background) */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+
+/* Show cursor again on mobile since touch doesn't have a cursor */
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  /* Make sure all interactive elements also hide the cursor */
+  a, button, input, textarea {
+    cursor: none;
+  }

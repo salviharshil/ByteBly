@@ -1,0 +1,63 @@
+/**
+ * App.css
+ * Structural layout, mobile-safe fixes, and 3D scene support
+ */
+
+/* Root wrapper for React app */
+#root {
+  width: 100%;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-dark-bg); /* Ensures background matches theme while loading */
+}
+
+/* Main container for content + 3D Scene */
+.app-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents accidental horizontal scroll */
+}
+
+/* Text selection consistent with brand colors */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Page wrapper: prevents layout shift and horizontal scroll flicker */
+.page-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Ensure media scales correctly across devices */
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Fix for 3D canvas pointer events: ensures content remains interactive */
+canvas {
+  pointer-events: none; /* Only allow interaction through React overlays */
+}
+
+/* Optional: Smooth scroll for anchors and internal navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Reduce flicker on mobile Safari when resizing */
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
