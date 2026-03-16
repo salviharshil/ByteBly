@@ -84,7 +84,7 @@ export default function Contact() {
               <InfoItem
                 icon={<Mail />}
                 title="Email"
-                value="hr@bytebly.in"
+                value="info@bytebly.in"
                 color="text-primary"
               />
               <InfoItem
