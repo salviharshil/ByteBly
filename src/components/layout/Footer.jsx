@@ -141,7 +141,7 @@ export default function Footer() {
                 whileHover={{ x: 5 }}
                 className="hover:text-white transition-colors cursor-pointer w-fit"
               >
-                hr@bytebly.in
+                info@bytebly.in
               </motion.li>
               <motion.li
                 whileHover={{ x: 5 }}
