@@ -173,7 +173,7 @@ export default function Navbar() {
                 </MotionLink>
 
                 <p className="mt-6 text-sm text-gray-500">
-                  contact@bytebly.com
+                  info@bytebly.in
                 </p>
               </div>
             </motion.aside>
