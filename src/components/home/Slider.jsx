@@ -12,58 +12,66 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    name: "Sarah Jenkins",
-    company: "Trendify Co.",
+    name: "Jash Patel",
+    company: "Sanderi Exporters",
+    website: "https://sanderiexporters.com",
     rating: 5,
     quote:
-      "ByteBly transformed our online presence with a stunning Shopify store. Sales increased 300% within the first quarter!"
+      "ByteBly gave our export business a website that genuinely looks world-class. International buyers started reaching out within days of going live — the results spoke for themselves.",
   },
-  {
-    name: "David Chen",
-    company: "DevStream",
-    rating: 5,
-    quote:
-      "Their MERN expertise helped us build a highly scalable platform. The technical depth and execution were outstanding."
-  },
-  {
-    name: "Elena Rodriguez",
-    company: "PixelPoint",
-    rating: 5,
-    quote:
-      "From Figma to a live website in record time. Every detail was handled with care and precision."
-  },
-  {
-    name: "Marcus Thorne",
-    company: "FutureLabs",
-    rating: 5,
-    quote:
-      "The 3D motion and interaction design elevated our brand beyond expectations."
-  },
-  {
-    name: "Liam O'Connor",
-    company: "EcoSphere",
-    rating: 5,
-    quote:
-      "Professional, creative, and fast. The final WordPress site was both beautiful and blazing fast."
-  }
+  // {
+  //   name: "Sarah Jenkins",
+  //   company: "Trendify Co.",
+  //   rating: 5,
+  //   quote:
+  //     "ByteBly transformed our online presence with a stunning Shopify store. Sales increased 300% within the first quarter!"
+  // },
+  // {
+  //   name: "David Chen",
+  //   company: "DevStream",
+  //   rating: 5,
+  //   quote:
+  //     "Their MERN expertise helped us build a highly scalable platform. The technical depth and execution were outstanding."
+  // },
+  // {
+  //   name: "Elena Rodriguez",
+  //   company: "PixelPoint",
+  //   rating: 5,
+  //   quote:
+  //     "From Figma to a live website in record time. Every detail was handled with care and precision."
+  // },
+  // {
+  //   name: "Marcus Thorne",
+  //   company: "FutureLabs",
+  //   rating: 5,
+  //   quote:
+  //     "The 3D motion and interaction design elevated our brand beyond expectations."
+  // },
+  // {
+  //   name: "Liam O'Connor",
+  //   company: "EcoSphere",
+  //   rating: 5,
+  //   quote:
+  //     "Professional, creative, and fast. The final WordPress site was both beautiful and blazing fast."
+  // }
 ];
 
 const variants = {
   enter: (direction) => ({
     opacity: 0,
     y: direction > 0 ? 30 : -30,
-    scale: 0.96
+    scale: 0.96,
   }),
   center: {
     opacity: 1,
     y: 0,
-    scale: 1
+    scale: 1,
   },
   exit: (direction) => ({
     opacity: 0,
     y: direction < 0 ? 30 : -30,
-    scale: 0.96
-  })
+    scale: 0.96,
+  }),
 };
 
 export default function Slider() {
@@ -97,7 +105,7 @@ export default function Slider() {
       <div className="max-w-4xl mx-auto">
         {/* Icon */}
         <div className="flex justify-center mb-10">
-          <motion.div 
+          <motion.div
             whileHover={{ rotate: 15, scale: 1.1 }}
             className="p-4 rounded-full border border-primary/20 bg-primary/10"
           >
@@ -117,7 +125,7 @@ export default function Slider() {
               exit="exit"
               transition={{
                 duration: 0.6,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
               className="w-full"
             >
@@ -145,12 +153,18 @@ export default function Slider() {
 
                 {/* Author */}
                 <div>
-                  <h4 className="text-lg font-semibold">
-                    {testimonial.name}
-                  </h4>
+                  <h4 className="text-lg font-semibold">{testimonial.name}</h4>
                   <p className="text-primary text-sm uppercase tracking-widest mt-1">
                     {testimonial.company}
                   </p>
+                  <a
+                    href={testimonial.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/30 text-xs hover:text-white/60 transition-colors mt-1 inline-block"
+                  >
+                    {testimonial.website.replace("https://", "")}
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -183,9 +197,11 @@ export default function Slider() {
                   setIndex(i);
                 }}
                 className={`h-1.5 rounded-full transition-all duration-300
-                  ${i === index
-                    ? "w-8 bg-primary"
-                    : "w-2 bg-white/20 hover:bg-white/40"}`}
+                  ${
+                    i === index
+                      ? "w-8 bg-primary"
+                      : "w-2 bg-white/20 hover:bg-white/40"
+                  }`}
               />
             ))}
           </div>
