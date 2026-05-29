@@ -147,7 +147,7 @@ export default function Footer() {
                 whileHover={{ x: 5 }}
                 className="hover:text-white transition-colors cursor-pointer w-fit"
               >
-                +91 7567551327
+                +91 9484520805
               </motion.li>
               <li className="leading-relaxed opacity-80 pt-2">
                 Remote-first studio

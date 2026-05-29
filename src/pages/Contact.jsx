@@ -90,7 +90,7 @@ export default function Contact() {
               <InfoItem
                 icon={<Phone />}
                 title="Phone"
-                value="+91 7567551327"
+                value="+91 9484520805"
                 color="text-secondaryCyan"
               />
               <InfoItem

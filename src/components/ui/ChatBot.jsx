@@ -67,7 +67,7 @@ const generateBotReply = (input) => {
 
   // Contact
   if (/(contact|reach|email|phone|call|talk)/i.test(msg)) {
-    return 'You can reach us at:\n📧 hr@bytebly.in\n📞 +91 7567551327\n\nOr fill out our contact form for a quick response!';
+    return 'You can reach us at:\n📧 hr@bytebly.in\n📞 +91 9484520805\n\nOr fill out our contact form for a quick response!';
   }
 
   // Timeline
