@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/bytebly-icon-dark.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" href="/bytebly-icon-light.png" media="(prefers-color-scheme: light)" />
+    <link id="app-favicon" rel="icon" type="image/png" href="/bytebly-icon-light.png" />
+    <link id="apple-favicon" rel="apple-touch-icon" href="/bytebly-icon-light.png" />
+    <link id="shortcut-favicon" rel="shortcut icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bytebly - Creative & Digital Agency</title>
+    <!-- Theme-adaptive Favicon: Displays Bytebly dark-B mark in light mode and white-B mark in dark mode -->
+    <script>
+      (function() {
+        function applyFaviconTheme(isDark) {
+          var iconPath = isDark ? '/bytebly-icon-dark.png' : '/bytebly-icon-light.png';
+          var existing = document.querySelectorAll("link[rel*='icon']:not([type='image/svg+xml'])");
+          existing.forEach(function(el) { el.remove(); });
+
+          var newLink = document.createElement('link');
+          newLink.id = 'app-favicon';
+          newLink.rel = 'icon';
+          newLink.type = 'image/png';
+          newLink.href = iconPath;
+          document.head.appendChild(newLink);
+
+          var appleLink = document.getElementById('apple-favicon');
+          if (appleLink) appleLink.href = iconPath;
+        }
+
+        try {
+          var matcher = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+          if (matcher) {
+            applyFaviconTheme(matcher.matches);
+            if (matcher.addEventListener) {
+              matcher.addEventListener('change', function(e) { applyFaviconTheme(e.matches); });
+            } else if (matcher.addListener) {
+              matcher.addListener(function(e) { applyFaviconTheme(e.matches); });
+            }
+          }
+        } catch (e) {}
+
+        window.__setAppFaviconTheme = applyFaviconTheme;
+      })();
+    </script>
+    <!-- Google Fonts Barlow -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-barlow text-[#04000B] bg-white antialiased selection:bg-[#C9F31D] selection:text-[#04000B]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

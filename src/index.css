@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Barlow', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar and utilities matching design */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f3ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9f31d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #add40c;
+}
+
+/* Hide scrollbar utilities */
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Creative Agency Entrance Animations */
+@keyframes popSlideUp {
+  0% {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes blobPopup {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-22deg);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.24) rotate(6deg);
+  }
+  70% {
+    transform: scale(0.91) rotate(-3deg);
+  }
+  86% {
+    transform: scale(1.05) rotate(1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes cardPopEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.84) rotate(2.5deg);
+    filter: blur(6px);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.03) rotate(-0.5deg);
+    filter: blur(0px);
+  }
+  85% {
+    transform: translateY(2px) scale(0.99) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+  }
+  70% {
+    transform: scale(1.18) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-pop-up-1 {
+  animation: popSlideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-pop-up-2 {
+  animation: popSlideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+
+.animate-fade-up-desc {
+  animation: popSlideUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.animate-blob-popup,
+.animate-blob-entrance {
+  animation: blobPopup 0.92s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+  transform-origin: center center;
+}
+
+.animate-float-shape {
+  animation: floatGentle 5.5s ease-in-out infinite;
+}
+
+.animate-pop-card {
+  animation: cardPopEntrance 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+}
+
+.animate-badge-pop {
+  animation: badgePop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.72s both;
+}
+
+/* Smooth continuous auto-sliding marquee for Testimonials */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* 3D Sphere Inside & Outside Automatic Animations */
+@keyframes sphereBreathing {
+  0%, 100% {
+    transform: scale(1.02) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2.5deg);
+  }
+}
+
+.animate-sphere-breathing {
+  animation: sphereBreathing 7.5s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(300%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-sphere-shimmer {
+  animation: shimmerSweep 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes sphereCardFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.8deg);
+  }
+}
+
+.animate-sphere-card-float {
+  animation: sphereCardFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes auraPulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.65;
+  }
+}
+
+.animate-aura-pulse {
+  animation: auraPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes cosmicRingSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-cosmic-ring {
+  animation: cosmicRingSpin 24s linear infinite;
+}
+
+/* Process icon highlight to Bytebly Neon Lime (#C9F31D) inside black squircle */
+.group:hover .process-icon-highlight,
+.process-icon-highlight.is-highlighted {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(50%) saturate(1200%) hue-rotate(25deg) brightness(105%) !important;
+}
+
